@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const session = require("express-session");
 const methodOverride = require("method-override");
+const serverless = require("serverless-http");
 
 require("./utils/db-user");
 const User = require("./model/user");
@@ -440,6 +441,8 @@ app.use("/", (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Listening at http://localhost:${port}`);
+// });
+
+module.exports = app;

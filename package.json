@@ -23,6 +23,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^8.16.0",
     "nodemon": "^3.1.10",
+    "serverless-http": "^3.2.0",
     "tailwindcss": "^4.1.10",
     "yup": "^1.6.1"
   },
