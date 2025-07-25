@@ -1,0 +1,74 @@
+<section class="w-full max-h-[150vh] lg:h-[100vh] grid lg:grid-cols-2 py-10 px-10 gap-5">
+    <div class="bg-[#ECFAE5] rounded-4xl flex justify-center items-center flex-col lg:gap-10">
+        <img class="lg:w-[55%] w-[45%] py-2 object-cover" src="img/vector-register.png" alt="">
+        <p class="font-fredoka lg:block hidden lg:text-[1.5rem] text-center">Make your work easier with <span class="font-semibold">To Do List App</span></p>
+    </div>
+
+
+    <div class="bg-white flex justify-center items-center flex-col gap-10">
+        <div class="flex flex-col gap-1 justify-center items-center">
+            <h1 class="font-fredoka text-[2.3rem] font-medium text-center">Welcome To To Do List!</h1>
+            <p class="lg:text-[1rem] font-fredoka text-gray-400 text-center lg:block hidden">Enter your personal data to create your account</p>
+        </div>
+
+        <form method="post" action="/register" class="grid font-fredoka gap-4">
+            <div class="grid grid-cols-2 gap-7">
+                <div class="flex flex-col gap-2">
+                    <label for="namaDepan">First Name</label>
+                    <input type="text" name="namaDepan" id="namaDepan" placeholder="ex.John" class="border-2 py-2 px-3 rounded-md <%= errors.namaDepan ? 'border-red-500' : 'border-gray-400' %>" value="<%= old.namaDepan %>">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="namaBelakang">Last Name</label>
+                    <input type="text" name="namaBelakang" id="namaBelakang" placeholder="ex.Franch" class="border-2 py-2 px-3 rounded-md <%= errors.namaBelakang ? 'border-red-500' : 'border-gray-400' %>" value="<%= old.namaBelakang %>">
+                </div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="ex.john@gmail.com" class="border-2 py-2 px-3 rounded-md <%= errors.email ? 'border-red-500' : 'border-gray-400' %>" value="<%= old.email %>">
+                <% if (errors.email && errors.email.length > 0) { %>
+                    <ul>
+                        <% errors.email.forEach(msg => { %>
+                            <li class="text-[0.8rem] text-red-500"><%= msg %></li>
+                        <% }); %>
+                    </ul>
+                <% } %>
+            </div>
+            <div class="flex flex-col gap-2 relative">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password" class="border-2 py-2 px-3 rounded-md <%= errors.password ? 'border-red-500' : 'border-gray-400' %>">
+                <div class="absolute flex right-4 top-13 cursor-pointer">
+                    <i id="toggle" class="fa-solid fa-eye-slash fa-sm"></i>
+                </div>
+                <p class="text-[0.8rem] text-gray-400">Must be at least 8 characters</p>
+                <% if (errors.password && errors.password.length > 0) { %>
+                    <ul>
+                        <% errors.password.forEach(msg => { %>
+                            <li class="text-[0.8rem] text-red-500"><%= msg %></li>
+                        <% }); %>
+                    </ul>
+                <% } %>
+            </div>
+            <div class="flex items-center justify-center">
+                <button type="submit" class="py-2 mt-5 w-full bg-black text-white rounded-xl cursor-pointer hover:bg-white hover:text-black hover:border-black border-2 duration-300">Register</button>
+            </div>
+            <div class="flex justify-center mt-3">
+                <p class="text-[0.8rem] text-gray-400">Already have an account? <a class="font-medium text-black" href="/login">Log in</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    const passInput = document.getElementById("password");
+    const togglePass = document.getElementById("toggle");
+
+    togglePass.addEventListener("click", () => {
+        const type = passInput.getAttribute("type") === "password" ? "text" : "password";
+        passInput.setAttribute("type", type);
+
+        togglePass.classList.toggle("fa-eye-slash");
+        togglePass.classList.toggle("fa-eye");
+    })
+
+
+</script>

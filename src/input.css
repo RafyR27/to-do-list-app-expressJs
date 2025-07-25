@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-fredoka: "Fredoka", "sans-serif";
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.datepicker {
+  width: 400px;
+  border: none;
+  box-shadow: none;
+  padding: 12px;
+  @apply font-fredoka lg:w-[500px]
+}
+
+/* Header bulan */
+.datepicker-header {
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.datepicker-main {
+  @apply flex justify-center items-center w-full
+}
+
+.datepicker-view{
+  @apply w-full
+}
+
+/* Nama hari (Senin - Minggu) */
+.datepicker-view .days-of-week {
+  font-size: 0.85rem;
+  color: #6b7280; 
+}
+
+
+/* Tanggal biasa */
+.datepicker-cell {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  margin: auto;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover tanggal */
+.datepicker-cell:hover {
+  background-color: #DCFCE7 !important; 
+  cursor: pointer;
+}
+
+/* Tanggal terpilih */
+.datepicker-cell.selected {
+  background-color: #3E9F5E !important;
+  color: white !important;
+}
+
+.datepicker-cell.today {
+  background-color: #D1FAE5 !important;
+  color: #065F46 !important;
+  border: none !important;
+}
+
+.datepicker-cell.today.selected {
+  background-color: #3E9F5E !important;
+  color: white !important;
+}
