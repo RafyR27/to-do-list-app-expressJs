@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const session = require("express-session");
 const methodOverride = require("method-override");
+const path = require("path");
 
 require("./utils/db-user");
 const User = require("./model/user");
@@ -39,6 +40,7 @@ const userSchema = yup.object({
 app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(expressLayouts);
 app.use(express.urlencoded({ extended: true }));
 
