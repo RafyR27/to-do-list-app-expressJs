@@ -7,6 +7,7 @@ const saltRounds = 10;
 const session = require("express-session");
 const methodOverride = require("method-override");
 const path = require("path");
+const MongoStore = require("connect-mongo");
 
 require("./utils/db-user");
 const User = require("./model/user");
