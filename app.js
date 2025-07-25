@@ -15,7 +15,7 @@ const listUser = require("./model/list-user");
 const todoUser = require("./model/todo-user");
 
 const app = express();
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 const userSchema = yup.object({
   namaDepan: yup.string().required(),
