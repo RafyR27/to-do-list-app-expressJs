@@ -1,7 +1,7 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run tailwind\"",
     "test": "echo \"Error: no test specified\" && exit 1",

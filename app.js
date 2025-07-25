@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const session = require("express-session");
 const methodOverride = require("method-override");
-const serverless = require("serverless-http");
 
 require("./utils/db-user");
 const User = require("./model/user");
